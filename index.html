@@ -52,11 +52,22 @@ section{margin:34px 0 0}
 
 /* generic blocks */
 .stack{display:grid;gap:var(--gap)}.stack>*{min-width:0}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.item{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 8px;height:68px}
-.item .ic{flex:0 0 38px;height:44px;border-radius:10px;background:var(--bg2);display:grid;place-items:center}
-.item b{display:block;font-size:14px;white-space:nowrap;line-height:1.2}
-.item span{display:block;color:var(--mu);font-size:12px;line-height:1.25;margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:stretch}
+.grid:not(.tools){grid-auto-rows:minmax(200px,auto)}
+@media (min-width:375px){.grid:not(.tools){grid-auto-rows:minmax(184px,auto)}}
+@media (min-width:390px){.grid:not(.tools){grid-auto-rows:minmax(168px,auto)}}
+@media (min-width:414px){.grid:not(.tools){grid-auto-rows:minmax(152px,auto)}}
+@media (min-width:520px){.grid:not(.tools){grid-auto-rows:minmax(128px,auto)}}
+.item{display:flex;align-items:flex-start;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px;height:100%;min-height:0}
+.item .ic{flex:0 0 38px;height:38px;border-radius:10px;background:var(--bg2);display:grid;place-items:center;margin-top:1px}
+.item .tx{flex:1;min-width:0}
+.item b{display:block;font-size:13.5px;line-height:1.2}
+.item span{display:block;color:var(--mu);font-size:11.5px;line-height:1.35;margin-top:3px}
+.grid.tools{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:10px}
+.grid.tools .item{min-height:92px;flex-direction:column;align-items:center;text-align:center;padding:10px 6px;gap:6px}
+.grid.tools .item .ic{margin:0}
+.note{font-size:13.5px;font-style:italic;color:var(--mu);margin:12px 0 0;line-height:1.45}
+.stack>.note{margin-top:0}
 .card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gr);border-radius:12px;padding:11px 14px}
 .card.gold{border-left-color:var(--go)}.card.red{border-left-color:var(--ro)}.card.vi{border-left-color:var(--vi)}
 .card h3{margin:0 0 2px;font-size:15px;color:var(--tx)}
@@ -101,7 +112,7 @@ ol.steps li:before{content:counter(s);flex:0 0 28px;height:28px;border-radius:50
 .tl li{display:flex;gap:12px;align-items:center;position:relative}
 .tl li+li{margin-top:12px}
 .tl .dot{flex:0 0 34px;height:34px;border-radius:50%;color:#150d26;font-style:normal;font-weight:800;display:grid;place-items:center;border:3px solid var(--bg)}
-.tl .box{flex:1;height:84px;display:flex;flex-direction:column;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:15px}
+.tl .box{flex:1;min-height:84px;height:auto;display:flex;flex-direction:column;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:15px}
 .tl .box b{display:block;color:var(--la);font-size:12.5px;letter-spacing:.07em;margin-bottom:1px}
 .nw{white-space:nowrap}.dosub{color:var(--mu);font-size:14px;text-align:center;margin:0}
 footer{text-align:center;color:var(--mu);font-size:13px;padding:36px 0 56px}
@@ -116,7 +127,7 @@ footer{text-align:center;color:var(--mu);font-size:13px;padding:36px 0 56px}
 </defs></svg>
 
 <nav class="top" aria-label="Sections"><div class="wrap">
-<a class="brand" href="#top">ROOTS</a><a href="#materials">Materials</a><a href="#chart">Chart</a><a href="#soil">Soil</a><a href="#starter">Starter</a><a href="#topdress">Top-dress</a><a href="#timeline">Timeline</a>
+<a class="brand" href="#top">ROOTS</a><a href="#materials">Materials</a><a href="#chart">Chart</a><a href="#soil">Soil</a><a href="#starter">Starter</a><a href="#feed">Neptune's</a><a href="#topdress">Top-dress</a><a href="#timeline">Timeline</a>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
@@ -132,17 +143,24 @@ footer{text-align:center;color:var(--mu);font-size:13px;padding:36px 0 56px}
 
 <section id="materials">
 <div class="bar"><i class="n">1</i><h2>Materials</h2><svg width="22" height="22"><use href="#leaf"/></svg></div>
+<div class="stack">
 <div class="grid">
-<div class="item"><div class="ic"><svg width="26" height="30" style="color:#6ee7a0"><use href="#bag"/></svg></div><div><b>Sunshine Mix #4</b><span>56 cups per bag</span></div></div>
-<div class="item"><div class="ic"><svg width="26" height="30" style="color:#7aa2f7"><use href="#bag"/></svg></div><div><b>Quoddy Blend</b><span>Lobster Compost</span></div></div>
-<div class="item"><div class="ic"><svg width="30" height="22" viewBox="0 0 34 24"><path d="M3 12c6 14 12-10 26 4" stroke="#fb9fb0" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div><div><b>Worm castings</b><span>8 cups per bag</span></div></div>
-<div class="item"><div class="ic"><svg width="26" height="30" style="color:#a3e635"><use href="#bag"/></svg></div><div><b>Dr. Earth Veg</b><span>4-6-3, 10 Tbsp</span></div></div>
-<div class="item"><div class="ic"><svg width="26" height="30" style="color:#f472b6"><use href="#bag"/></svg></div><div><b>Dr. Earth Bloom</b><span>3-9-4, 6 Tbsp</span></div></div>
-<div class="item"><div class="ic"><svg width="26" height="30" style="color:#f5c451"><use href="#bag"/></svg></div><div><b>Seabird Guano</b><span>0-11-0, 5 Tbsp per bag</span></div></div>
-<div class="item"><div class="ic"><svg width="26" height="30" style="color:#c4b5fd"><use href="#bag"/></svg></div><div><b>Langbeinite</b><span>0-0-22, 2 Tbsp per bag</span></div></div>
-<div class="item"><div class="ic"><svg width="32" height="20" viewBox="0 0 34 20"><rect x="2" y="3" width="18" height="14" rx="6" fill="#d19a5c"/><rect x="18" y="8" width="14" height="5" rx="2" fill="#d19a5c"/></svg></div><div><b>&frac14;-cup scoop</b><span>= 4 Tbsp</span></div></div>
-<div class="item"><div class="ic"><svg width="28" height="30" viewBox="0 0 30 34"><path d="M3 12h24l-3 20H6z" fill="#f5c451"/><path d="M5 13a10 10 0 0 1 20 0" stroke="#140b26" stroke-width="1.6" fill="none"/></svg></div><div><b>5-gal bucket</b><span>for mixing soil</span></div></div>
-<div class="item"><div class="ic"><svg width="28" height="30" viewBox="0 0 30 34"><rect x="3" y="16" width="24" height="16" rx="3" fill="#6b5b95"/><rect x="5" y="17" width="20" height="4" fill="#4a3322"/><use href="#leaf" x="7" y="1" width="16" height="16"/></svg></div><div><b>5-gal bag</b><span>one autoflower</span></div></div>
+<div class="item"><div class="ic"><svg width="26" height="30" style="color:#6ee7a0"><use href="#bag"/></svg></div><div class="tx"><b>Sunshine Mix #4</b><span>Sun Gro. Base, 56 cups per bag (70%). Has perlite and dolomitic lime.</div></div>
+<div class="item"><div class="ic"><svg width="26" height="30" style="color:#7aa2f7"><use href="#bag"/></svg></div><div class="tx"><b>Quoddy Blend</b><span>Coast of Maine Lobster Compost, 0.6-0.3-0.2. 16 cups per bag (20%). Composted manure, sphagnum peat, aged bark, lobster &amp; crab shell meal.</div></div>
+<div class="item"><div class="ic"><svg width="30" height="22" viewBox="0 0 34 24"><path d="M3 12c6 14 12-10 26 4" stroke="#fb9fb0" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div><div class="tx"><b>Worm castings</b><span>Base, 8 cups per bag (10%).</div></div>
+<div class="item"><div class="ic"><svg width="26" height="30" style="color:#a3e635"><use href="#bag"/></svg></div><div class="tx"><b>Dr. Earth Veg</b><span>Home Grown 4-6-3. Starter, 10 Tbsp per bag (2.5 scoops).</div></div>
+<div class="item"><div class="ic"><svg width="26" height="30" style="color:#f472b6"><use href="#bag"/></svg></div><div class="tx"><b>Dr. Earth Bloom</b><span>Flower Girl 3-9-4. Starter, 6 Tbsp per bag (1.5 scoops).</div></div>
+<div class="item"><div class="ic"><svg width="26" height="30" style="color:#f5c451"><use href="#bag"/></svg></div><div class="tx"><b>Seabird Guano</b><span>Down To Earth 0-11-0, 20% Ca. Top-dress, 5 Tbsp per bag.</div></div>
+<div class="item"><div class="ic"><svg width="26" height="30" style="color:#c4b5fd"><use href="#bag"/></svg></div><div class="tx"><b>Langbeinite</b><span>Down To Earth 0-0-22, ~10.8% Mg, 22% S. Top-dress, 2 Tbsp per bag.</div></div>
+<div class="item"><div class="ic"><svg width="22" height="26" viewBox="0 0 24 30"><path d="M9 2h6v5l3 3v16a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V10l3-3V2z" fill="#7dd3fc"/><rect x="9" y="2" width="6" height="4" rx="1" fill="#bae6fd"/></svg></div><div class="tx"><b>Neptune's Harvest</b><span>Fish &amp; Seaweed 2-3-1. 2 Tbsp per 5-gallon mix, one feed 4 weeks after planting (a good soak), then no more.</span></div></div>
+</div>
+<div class="grid tools">
+<div class="item"><div class="ic"><svg width="32" height="20" viewBox="0 0 34 20"><rect x="2" y="3" width="18" height="14" rx="6" fill="#d19a5c"/><rect x="18" y="8" width="14" height="5" rx="2" fill="#d19a5c"/></svg></div><div class="tx"><b>&frac14;-cup scoop</b><span>= 4 Tbsp</div></div>
+<div class="item"><div class="ic"><svg width="28" height="30" viewBox="0 0 30 34"><path d="M3 12h24l-3 20H6z" fill="#f5c451"/><path d="M5 13a10 10 0 0 1 20 0" stroke="#140b26" stroke-width="1.6" fill="none"/></svg></div><div class="tx"><b>5-gal bucket</b><span>For mixing</div></div>
+<div class="item"><div class="ic"><svg width="28" height="30" viewBox="0 0 30 34"><rect x="3" y="16" width="24" height="16" rx="3" fill="#6b5b95"/><rect x="5" y="17" width="20" height="4" fill="#4a3322"/><use href="#leaf" x="7" y="1" width="16" height="16"/></svg></div><div class="tx"><b>5-gal fabric bag</b><span>One autoflower per bag</span></div></div>
+</div>
+<div class="card gold"><h3>Regular feeds</h3><p>Dr. Earth Veg / Bloom and Neptune's Harvest are your regular feeds. See <a href="#feed">section 5</a>: 2 Tbsp per 5-gallon mix, one feed at week 4. If week 4 lands in a top-dress week, push it back one week.</p></div>
+<p class="note">Base soil = 70/20/10 Sunshine Mix #4 / Quoddy Blend (composted manure, sphagnum peat, aged bark, lobster &amp; crab shell meal) / worm castings. See <a href="#soil">section 3</a>.</p>
 </div>
 </section>
 
@@ -190,8 +208,19 @@ footer{text-align:center;color:var(--mu);font-size:13px;padding:36px 0 56px}
 </div>
 </section>
 
+
+<section id="feed">
+<div class="bar"><i class="n">5</i><h2>Neptune's Harvest</h2><svg width="22" height="22"><use href="#leaf"/></svg></div>
+<div class="stack">
+<div><p class="panel-h">FISH &amp; SEAWEED 2-3-1, 5-GAL MIX</p>
+<div class="panel"><div><strong>2 Tbsp</strong><span>per 5-gallon mix</span></div><div><strong>1 feed</strong><span>at week 4</span></div><div><strong>Good soak</strong><span>then no more</span></div></div></div>
+<div class="card gold"><h3>How to feed</h3><p>Shake the bottle well. Mix <b>2 Tbsp (1 fl oz)</b> of concentrate into a <b>5-gallon bucket of water</b>, then give the bag a good soaking from that mix. Mix only what you'll use; don't store the diluted mix. A fishy smell is normal. If you use another Neptune's product, follow that label.</p></div>
+<div class="card"><h3>When</h3><p>Give <b>one feed, 4 weeks after planting</b>, then no more Neptune's. If week 4 lands in the top-dress week, push that feed back one week. This is the only Neptune's feed in the grow.</p></div>
+<div class="card vi"><h3>Why stay conservative</h3><p>This 2 Tbsp per 5-gallon mix is well under the label rate, so it's gentle. The soil is already amended with Dr. Earth plus compost, and a top-dress comes later. Autoflowers are light feeders, so one soak is enough.</p></div>
+</div>
+</section>
 <section id="topdress">
-<div class="bar"><i class="n">5</i><h2>Flowering Top-Dress</h2><svg width="22" height="22"><use href="#leaf"/></svg></div>
+<div class="bar"><i class="n">6</i><h2>Flowering Top-Dress</h2><svg width="22" height="22"><use href="#leaf"/></svg></div>
 <div class="stack">
 <div class="tscroll"><table><thead><tr><th>Per bag</th><th class="hl r">Amount</th></tr></thead><tbody>
 <tr><td><b>Seabird Guano</b><small>0-11-0, 20% Ca</small></td><td class="hl r">5 Tbsp<small>1&frac14; scoops</small></td></tr>
@@ -214,7 +243,7 @@ footer{text-align:center;color:var(--mu);font-size:13px;padding:36px 0 56px}
 <li><span>Water in gently.</span></li>
 </ol>
 <div class="media"><img src="assets/apply.jpg" width="900" height="506" alt="Illustration of hands spreading compost onto a plant in a grow bag, with a watering can"></div>
-<div class="card gold"><h3>That week</h3><p>Ease off Dr. Earth Bloom and Neptune's Harvest.</p></div>
+<div class="card gold"><h3>That week</h3><p>Ease off Dr. Earth Bloom. If the week-4 Neptune's feed lands this week, push it back one week.</p></div>
 <div class="card"><h3>Round two</h3><p><b>3-4 weeks later</b>, only if it lands before the <span class="nw">final 2-3 weeks</span>.</p></div>
 <div class="card vi"><h3>Within label rates</h3><p>Guano: 5 Tbsp in 5 gal = 1 Tbsp/gal, the label rate. Langbeinite: 6 tsp = ~1.2 tsp/gal, inside 1-2 tsp/gal.</p></div>
 </div>
@@ -222,17 +251,18 @@ footer{text-align:center;color:var(--mu);font-size:13px;padding:36px 0 56px}
 
 
 <section id="timeline">
-<div class="bar"><i class="n">6</i><h2>Timeline</h2><svg width="22" height="22"><use href="#leaf"/></svg></div>
+<div class="bar"><i class="n">7</i><h2>Timeline</h2><svg width="22" height="22"><use href="#leaf"/></svg></div>
 <ol class="tl">
 <li><i class="dot" style="background:#6ee7a0">1</i><div class="box"><b>AT PLANTING</b>Base soil + 10 Tbsp Veg + 6 Tbsp Bloom. Rest 1-2 wks.</div></li>
-<li><i class="dot" style="background:#f5c451">2</i><div class="box"><b>WHEN FLOWERING STARTS</b>5 Tbsp guano + 2 Tbsp langbeinite in ~13 cups</div></li>
-<li><i class="dot" style="background:#c4b5fd">3</i><div class="box"><b>3-4 WEEKS LATER</b>Optional round two.</div></li>
-<li><i class="dot" style="background:#fb7185">4</i><div class="box"><b>FINAL 2-3 WEEKS</b>No top-dress.</div></li>
+<li><i class="dot" style="background:#7dd3fc">2</i><div class="box"><b>WEEK 4</b>One Neptune's feed: 2 Tbsp per 5-gallon mix, a good soak, then no more. If week 4 lands in a top-dress week, push it back 1 week.</div></li>
+<li><i class="dot" style="background:#f5c451">3</i><div class="box"><b>WHEN FLOWERING STARTS</b>Top-dress: 5 Tbsp guano + 2 Tbsp langbeinite in ~13 cups.</div></li>
+<li><i class="dot" style="background:#c4b5fd">4</i><div class="box"><b>3-4 WEEKS LATER</b>Optional top-dress round two.</div></li>
+<li><i class="dot" style="background:#fb7185">5</i><div class="box"><b>FINAL 2-3 WEEKS</b>No top-dress, no Neptune's.</div></li>
 </ol>
 </section>
 
 <section id="watch">
-<div class="bar"><i class="n">7</i><h2>Watch For</h2><svg width="22" height="22"><use href="#leaf"/></svg></div>
+<div class="bar"><i class="n">8</i><h2>Watch For</h2><svg width="22" height="22"><use href="#leaf"/></svg></div>
 <div class="stack">
 <div class="card red"><h3>Burnt or crispy tips</h3><p>Too strong. Back off feeding, water plain.</p></div>
 <div class="card gold"><h3>Pale or yellow leaves early</h3><p>Check watering and pH before adding more.</p></div>
